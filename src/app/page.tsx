@@ -11,6 +11,40 @@ export default function Home() {
 
   const tagline = "create & innovate";
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitMessage, setSubmitMessage] = useState<string | null>(null);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitMessage(null);
+
+    const formData = new FormData(e.currentTarget);
+    const name = String(formData.get("name") || "").trim();
+    const email = String(formData.get("email") || "").trim();
+    const phone = String(formData.get("phone") || "").trim();
+    const message = String(formData.get("message") || "").trim();
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, phone, message }),
+      });
+      if (res.ok) {
+        setSubmitMessage("Thanks! Your message was sent.");
+        e.currentTarget.reset();
+      } else {
+        const data = await res.json().catch(() => ({}));
+        setSubmitMessage(data.error || "Sorry, something went wrong. Please try again.");
+      }
+    } catch (error) {
+      setSubmitMessage("Network error. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   useEffect(() => {
     setIsVisible(true);
     
@@ -370,7 +404,7 @@ export default function Home() {
                         </div>
                         <div>
                           <h4 className="font-semibold text-gray-900 mb-1">Email</h4>
-                          <p className="text-gray-600">hello@creavate.com</p>
+                          <p className="text-gray-600">creavate0@gmail.com</p>
                         </div>
                       </div>
                       
@@ -402,13 +436,15 @@ export default function Home() {
                   </div>
                   
                   {/* Contact Form */}
-                  <div className="text-left">
+                  <form className="text-left" onSubmit={handleSubmit}>
                     <h3 className="text-2xl font-bold text-gray-900 mb-6">Send Message</h3>
                     <div className="space-y-4">
                       <div>
                         <input 
                           type="text" 
                           placeholder="Your Name" 
+                          name="name"
+                          required
                           className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                         />
                       </div>
@@ -416,6 +452,16 @@ export default function Home() {
                         <input 
                           type="email" 
                           placeholder="Your Email" 
+                          name="email"
+                          required
+                          className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                        />
+                      </div>
+                      <div>
+                        <input 
+                          type="tel" 
+                          placeholder="Your Phone Number" 
+                          name="phone"
                           className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                         />
                       </div>
@@ -423,14 +469,23 @@ export default function Home() {
                         <textarea 
                           placeholder="Your Message" 
                           rows={4}
+                          name="message"
+                          required
                           className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
                         ></textarea>
                       </div>
-                      <button className="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white py-3 rounded-xl font-semibold hover:from-blue-700 hover:to-blue-800 transition-all duration-300 transform hover:scale-105">
-                        Send Message
+                      <button
+                        type="submit"
+                        disabled={isSubmitting}
+                        className="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white py-3 rounded-xl font-semibold hover:from-blue-700 hover:to-blue-800 transition-all duration-300 transform hover:scale-105 disabled:opacity-60 disabled:cursor-not-allowed"
+                      >
+                        {isSubmitting ? "Sending..." : "Send Message"}
                       </button>
+                      {submitMessage && (
+                        <p className="text-sm text-gray-600 mt-2">{submitMessage}</p>
+                      )}
                     </div>
-                  </div>
+                  </form>
                 </div>
               </div>
             </div>
