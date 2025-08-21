@@ -10,7 +10,7 @@ export default function Home() {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const tagline = "create & innovate";
-  const INSTAGRAM_URL = "https://instagram.com/creavate"; // change to your real handle
+  const INSTAGRAM_URL = "https://instagram.com/crea.vate"; // change to your real handle
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitMessage, setSubmitMessage] = useState<string | null>(null);
