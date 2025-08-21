@@ -19,7 +19,9 @@ export default function Home() {
     setIsSubmitting(true);
     setSubmitMessage(null);
 
-    const formData = new FormData(e.currentTarget);
+    // Cache form element to avoid React synthetic event pooling issues after await
+    const form = e.currentTarget;
+    const formData = new FormData(form);
     const name = String(formData.get("name") || "").trim();
     const email = String(formData.get("email") || "").trim();
     const phone = String(formData.get("phone") || "").trim();
@@ -33,7 +35,7 @@ export default function Home() {
       });
       if (res.ok) {
         setSubmitMessage("Thanks! Your message was sent.");
-        e.currentTarget.reset();
+        form.reset();
       } else {
         const data = await res.json().catch(() => ({}));
         setSubmitMessage(data.error || "Sorry, something went wrong. Please try again.");
