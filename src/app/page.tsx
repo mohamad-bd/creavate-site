@@ -205,14 +205,16 @@ export default function Home() {
             </div>
             
             <div className={`transform transition-all duration-1000 delay-900 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-              <div className="flex flex-col sm:flex-row justify-center gap-6">
-                <Link href="/#contact" className="group bg-gradient-to-r from-gray-700 to-gray-800 text-white px-10 py-4 rounded-xl font-semibold text-lg hover:from-gray-800 hover:to-gray-900 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl shadow-lg">
+              <div className="flex flex-row flex-wrap justify-center gap-4">
+                <Link href="/#contact" className="group bg-gradient-to-r from-gray-700 to-gray-800 text-white px-8 py-3 rounded-xl font-semibold text-base sm:text-lg hover:from-gray-800 hover:to-gray-900 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl shadow-lg">
                   Start Your Project
                   <span className="inline-block ml-2 transform group-hover:translate-x-1 transition-transform duration-300">→</span>
                 </Link>
-                <Link href="/team" className="group border-2 border-gray-300 text-gray-700 px-10 py-4 rounded-xl font-semibold text-lg hover:border-blue-500 hover:text-blue-600 transition-all duration-300 transform hover:scale-105 hover:shadow-xl bg-white">
-                  Meet Us
-                  <span className="inline-block ml-2 transform group-hover:translate-x-1 transition-transform duration-300">→</span>
+                <Link href="/team" className="group relative rounded-xl p-[2px] bg-gradient-to-r from-blue-500 to-purple-600 transition-all duration-300 hover:shadow-2xl">
+                  <span className="block rounded-xl bg-white text-gray-800 px-8 py-3 font-semibold text-base sm:text-lg transition-all duration-300 group-hover:text-blue-700">
+                    Meet Us
+                    <span className="inline-block ml-2 transform group-hover:translate-x-1 transition-transform duration-300">→</span>
+                  </span>
                 </Link>
               </div>
             </div>
