@@ -1,9 +1,17 @@
 'use client';
 import { useEffect } from 'react';
 
+type TawkAttributes = Record<string, string>;
+
+type TawkAPI = {
+  onLoad?: () => void;
+  setAttributes?: (attrs: TawkAttributes) => void;
+  customStyle?: Record<string, unknown>;
+} & Record<string, unknown>;
+
 declare global {
   interface Window {
-    Tawk_API?: any;
+    Tawk_API?: TawkAPI;
     Tawk_LoadStart?: Date;
   }
 }
@@ -16,34 +24,34 @@ export default function ChatWidget() {
     script.src = 'https://embed.tawk.to/68a74485fcd547192ddebbb4/1j36m7act';
     script.charset = 'UTF-8';
     script.setAttribute('crossorigin', '*');
-    
+
     // Initialize Tawk.to
     script.onload = () => {
       if (window.Tawk_API) {
-        window.Tawk_API.onLoad = function() {
+        window.Tawk_API.onLoad = function () {
           // Customize chat widget
-          window.Tawk_API.setAttributes({
-            'name': 'Website Visitor',
-            'email': '',
-            'phone': '',
-            'company': 'Creavate'
+          window.Tawk_API?.setAttributes?.({
+            name: 'Website Visitor',
+            email: '',
+            phone: '',
+            company: 'Creavate',
           });
-          
-          // Set custom colors to match your brand
-          window.Tawk_API.customStyle = {
+
+          // Optional style overrides
+          window.Tawk_API!.customStyle = {
             visibility: {
               desktop: {
                 positionCorner: 'bottom-right',
                 positionOffsetCorner: 'bottom-right',
-                position: 'bottom-right'
+                position: 'bottom-right',
               },
               mobile: {
                 positionCorner: 'bottom-right',
                 positionOffsetCorner: 'bottom-right',
-                position: 'bottom-right'
-              }
-            }
-          };
+                position: 'bottom-right',
+              },
+            },
+          } as Record<string, unknown>;
         };
       }
     };
