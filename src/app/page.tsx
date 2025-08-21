@@ -153,7 +153,7 @@ export default function Home() {
               <p className="text-xl text-gray-600 max-w-4xl mx-auto mb-12 leading-relaxed">
                 We transform ideas into reality through smart digital solutions. 
                 From websites to mobile apps, from career development to circuit designs - 
-                we're your complete innovation partner.
+                we&apos;re your complete innovation partner.
               </p>
             </div>
             
@@ -195,8 +195,8 @@ export default function Home() {
                     individuals achieve their digital goals.
                   </p>
                   <p className="text-lg text-gray-600 leading-relaxed">
-                    Today, we're proud to offer comprehensive solutions that go beyond 
-                    traditional web development - we're your partners in innovation.
+                    Today, we&apos;re proud to offer comprehensive solutions that go beyond 
+                    traditional web development - we&apos;re your partners in innovation.
                   </p>
                 </div>
               </div>
@@ -280,7 +280,7 @@ export default function Home() {
             <div className="bg-gradient-to-r from-blue-50 via-white to-gray-50 p-12 rounded-3xl shadow-xl transform hover:scale-105 transition-all duration-500">
               <h3 className="text-3xl font-semibold text-gray-900 mb-6">Special Student Services</h3>
               <p className="text-xl text-gray-700 mb-8 max-w-3xl mx-auto">
-                We understand the challenges university students face. That's why we offer private courses 
+                We understand the challenges university students face. That&apos;s why we offer private courses 
                 and mentorship to help you succeed in your academic and professional journey.
               </p>
               <button className="group bg-gradient-to-r from-blue-600 to-blue-700 text-white px-10 py-4 rounded-xl font-semibold text-lg hover:from-blue-700 hover:to-blue-800 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl shadow-lg">
@@ -351,7 +351,7 @@ export default function Home() {
             <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-gray-600 mx-auto mb-8"></div>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-16">
               Ready to start your next project or need help with your career? 
-              Let's discuss how we can help you succeed.
+              Let&apos;s discuss how we can help you succeed.
             </p>
             
             {/* Contact Card */}

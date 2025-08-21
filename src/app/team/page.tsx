@@ -79,7 +79,7 @@ export default function TeamPage() {
               </div>
               
               {/* Name and Title */}
-              <h2 className="text-2xl font-bold text-gray-900 mb-2">Partner's Name</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-2">Partner&apos;s Name</h2>
               <p className="text-green-600 font-semibold text-lg mb-4">Co-Founder & Designer</p>
               
               {/* Description */}
