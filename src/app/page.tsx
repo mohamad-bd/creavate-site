@@ -91,7 +91,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-white overflow-x-hidden">
       {/* Navigation */}
-      <nav className={`backdrop-blur-sm sticky top-0 z-50 transition-all duration-300 border-b border-gray-100 ${isScrolled ? 'bg-white/95 shadow-lg' : 'bg-white/80'}`}>
+      <nav className={`backdrop-blur-sm fixed top-0 left-0 right-0 w-full z-50 transition-all duration-300 border-b border-gray-100 ${isScrolled ? 'bg-white/95 shadow-lg' : 'bg-white/80'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
             {/* Logo */}
@@ -170,6 +170,8 @@ export default function Home() {
           )}
         </div>
       </nav>
+      {/* spacer to offset fixed navbar height */}
+      <div className="h-20" />
 
       {/* Hero Section */}
       <main className="relative">
@@ -501,16 +503,17 @@ export default function Home() {
               </div>
             </div>
             
-            {/* Call to Action Buttons */}
-            <div className="mt-12 flex flex-col sm:flex-row justify-center gap-6">
-              <button className="group bg-gradient-to-r from-gray-700 to-gray-800 text-white px-10 py-4 rounded-xl font-semibold text-lg hover:from-gray-800 hover:to-gray-900 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl shadow-lg">
-                Start Your Project
-                <span className="inline-block ml-2 transform group-hover:translate-x-1 transition-transform duration-300">→</span>
-              </button>
-              <button className="group bg-gradient-to-r from-blue-600 to-blue-700 text-white px-10 py-4 rounded-xl font-semibold text-lg hover:from-blue-700 hover:to-blue-800 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl shadow-lg">
+            {/* Call to Action */}
+            <div className="mt-12 flex justify-center">
+              <a
+                href="https://wa.me/96176908134"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group bg-gradient-to-r from-blue-600 to-blue-700 text-white px-10 py-4 rounded-xl font-semibold text-lg hover:from-blue-700 hover:to-blue-800 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl shadow-lg"
+              >
                 Get Career Help
                 <span className="inline-block ml-2 transform group-hover:translate-x-1 transition-transform duration-300">→</span>
-              </button>
+              </a>
             </div>
           </div>
         </div>
