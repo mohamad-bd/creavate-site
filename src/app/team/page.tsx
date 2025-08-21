@@ -50,14 +50,19 @@ export default function TeamPage() {
           <div className="bg-white border-2 border-gray-100 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 hover:border-blue-200">
             <div className="text-center">
               {/* Profile Photo */}
-              <div className="w-48 h-48 bg-gradient-to-br from-blue-100 to-gray-100 rounded-full mx-auto mb-6 flex items-center justify-center overflow-hidden">
-                <svg className="w-24 h-24 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                </svg>
+              <div className="w-48 h-48 bg-gradient-to-br from-blue-100 to-gray-100 rounded-full mx-auto mb-6 overflow-hidden relative">
+                <Image
+                  src="/team/mohamad.jpg"
+                  alt="Mohammed badran"
+                  fill
+                  sizes="192px"
+                  className="object-cover"
+                  priority
+                />
               </div>
               
               {/* Name and Title */}
-              <h2 className="text-2xl font-bold text-gray-900 mb-2">Your Name</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-2">Mohammed badran</h2>
               <p className="text-blue-600 font-semibold text-lg mb-4">Co-Founder & Developer</p>
               
               {/* Description */}
@@ -72,14 +77,18 @@ export default function TeamPage() {
           <div className="bg-white border-2 border-gray-100 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 hover:border-blue-200">
             <div className="text-center">
               {/* Profile Photo */}
-              <div className="w-48 h-48 bg-gradient-to-br from-green-100 to-blue-100 rounded-full mx-auto mb-6 flex items-center justify-center overflow-hidden">
-                <svg className="w-24 h-24 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                </svg>
+              <div className="w-48 h-48 bg-gradient-to-br from-green-100 to-blue-100 rounded-full mx-auto mb-6 overflow-hidden relative">
+                <Image
+                  src="/team/partner.jpg"
+                  alt="Maha Al Jazzar"
+                  fill
+                  sizes="192px"
+                  className="object-cover"
+                />
               </div>
               
               {/* Name and Title */}
-              <h2 className="text-2xl font-bold text-gray-900 mb-2">Partner&apos;s Name</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-2">Maha Al Jazzar</h2>
               <p className="text-green-600 font-semibold text-lg mb-4">Co-Founder & Designer</p>
               
               {/* Description */}
