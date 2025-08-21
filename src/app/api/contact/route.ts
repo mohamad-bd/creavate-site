@@ -1,7 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
 
-const FROM_EMAIL = "creavate0@gmail.com"; // visible in email headers
-const TO_EMAIL = "creavate0@gmail.com";
+// Use Resend's onboarding sender for reliable testing without domain verification.
+// You can override via env: FROM_EMAIL="you@yourdomain.com" after verifying domain in Resend.
+const FROM_EMAIL = process.env.FROM_EMAIL || "onboarding@resend.dev";
+const TO_EMAIL = process.env.TO_EMAIL || "creavate0@gmail.com";
 
 export async function POST(req: NextRequest) {
   try {
@@ -29,6 +31,7 @@ export async function POST(req: NextRequest) {
           to: TO_EMAIL,
           subject: `Contact form: ${safe(name)}`,
           text: textBody,
+          reply_to: email ? [safe(email)] : undefined,
         }),
       });
 
